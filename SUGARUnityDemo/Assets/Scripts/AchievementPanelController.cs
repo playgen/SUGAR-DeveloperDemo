@@ -19,7 +19,7 @@ public class AchievementPanelController : BasePanelController
         {
             if (!SUGARManager.Achievement.IsActive)
             {
-                ReturnToMenu();
+                GoToMenu();
             }
             yield return null;
         }

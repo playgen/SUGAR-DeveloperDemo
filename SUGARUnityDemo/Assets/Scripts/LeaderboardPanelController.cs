@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using PlayGen.SUGAR.Unity;
-using UnityEngine;
 
 public class LeaderboardPanelController : BasePanelController {
 
@@ -18,7 +17,7 @@ public class LeaderboardPanelController : BasePanelController {
         {
             if (!SUGARManager.GameLeaderboard.IsActive)
             {
-                ReturnToMenu();
+                GoToMenu();
             }
             yield return null;
         }

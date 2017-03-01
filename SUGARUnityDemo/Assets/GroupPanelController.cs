@@ -18,7 +18,7 @@ public class GroupPanelController : BasePanelController {
         {
             if (!SUGARManager.UserGroup.IsActive)
             {
-                ReturnToMenu();
+                GoToMenu();
             }
             yield return null;
         }

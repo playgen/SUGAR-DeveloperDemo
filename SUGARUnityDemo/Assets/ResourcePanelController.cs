@@ -1,13 +1,15 @@
 ﻿using System.Collections;
-using PlayGen.SUGAR.Unity;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class FriendsPanelController : BasePanelController {
+public class ResourcePanelController : BasePanelController
+{
+
+    public GameObject ResourcePanel;
 
     public override void Display()
     {
-        SUGARManager.UserFriend.Display();
-
+        ResourcePanel.SetActive(true);
         base.Display();
     }
 
@@ -17,7 +19,7 @@ public class FriendsPanelController : BasePanelController {
         // Check if the panel is deactivated
         while (true)
         {
-            if (!SUGARManager.UserFriend.IsActive)
+            if (!ResourcePanel.activeSelf)
             {
                 GoToMenu();
             }
