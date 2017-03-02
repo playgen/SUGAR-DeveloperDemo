@@ -5,13 +5,12 @@ using UnityEngine;
 
 public class ResourcePanelController : BasePanelController
 {
-
-    public GameObject ResourcePanel;
+    private GameObject _resourcePanel;
 
     public override void Display()
-    { 
-        ResourcePanel = SUGARManager.Unity.transform.FindChild("SUGAR Canvas/ResourcePanel").gameObject;
-        SUGARManager.Unity.EnableObject(ResourcePanel);
+    {
+        _resourcePanel = SUGARManager.Unity.CustomInterfaces["ResourcePanel"];
+        SUGARManager.Unity.EnableObject(_resourcePanel);
 
         base.Display();
     }
@@ -22,7 +21,7 @@ public class ResourcePanelController : BasePanelController
         // Check if the panel is deactivated
         while (true)
         {
-            if (!ResourcePanel.activeSelf)
+            if (!_resourcePanel.activeSelf)
             {
                 GoToMenu();
             }

@@ -9,6 +9,8 @@ public class AchievementPanelController : BasePanelController
         SUGARManager.Achievement.DisplayList();
 
         base.Display();
+
+        SUGARManager.Achievement.ForceNotificationTest("Display Notification");
     }
 
     public override IEnumerator CheckPanel()
