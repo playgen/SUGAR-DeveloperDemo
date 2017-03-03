@@ -46,13 +46,18 @@ public class PlayerResources : MonoBehaviour
         _title.text = "Resources - " + _giftingResource + " (" + _giftingAmount + ")";
         DestroyAllChildren(_content);
 
-        foreach (var friend in SUGARManager.UserFriend.Friends)
+        SUGARManager.UserFriend.GetFriendsList(success =>
         {
-            var go = Instantiate(FriendElement);
-            go.transform.SetParent(_content);
-            go.GetComponent<FriendElement>().Setup(friend.Actor.Name);
-            go.GetComponentInChildren<Button>().onClick.AddListener(() => GiveResourceToFriend(friend.Actor.Id));
-        }
+            foreach (var friend in SUGARManager.UserFriend.Friends)
+            {
+                var go = Instantiate(FriendElement);
+                go.transform.SetParent(_content);
+                go.GetComponent<FriendElement>().Setup(friend.Actor.Name);
+                go.GetComponentInChildren<Button>().onClick.AddListener(() => GiveResourceToFriend(friend.Actor.Id));
+            }
+        });
+
+        
     }
 
     private void DestroyAllChildren(Transform parent)
